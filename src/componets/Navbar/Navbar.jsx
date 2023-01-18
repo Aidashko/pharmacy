@@ -16,10 +16,11 @@ import MailIcon from "@mui/icons-material/Mail";
 import NotificationsIcon from "@mui/icons-material/Notifications";
 import MoreIcon from "@mui/icons-material/MoreVert";
 import { Image } from "@mui/icons-material";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Navbar.css";
+import { authContext } from "../../Contexts/AuthContext";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -163,6 +164,9 @@ const Navbar = () => {
     </Menu>
   );
 
+  const navigate = useNavigate();
+  const { logout, user } = React.useState(authContext);
+
   return (
     <div className="Navbar">
       <Box sx={{ flexGrow: 1 }}>
@@ -197,7 +201,86 @@ const Navbar = () => {
             </Search>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Link to="/products">
+              <Button
+                onClick={() => navigate("/products")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Products
+              </Button>
+              <Button
+                onClick={() => navigate("/admin")}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Admin Page
+              </Button>
+              {user}
+              <Button
+                onClick={() => logout()}
+                sx={{ my: 2, color: "white", display: "block" }}
+              >
+                Logout
+              </Button>
+
+              <IconButton
+                size="large"
+                aria-label="show 4 new mails"
+                color="inherit"
+              >
+                <Badge badgeContent={4} color="error">
+                  <ShoppingCartIcon />
+                </Badge>
+              </IconButton>
+
+              <IconButton
+                size="large"
+                edge="end"
+                aria-label="account of current user"
+                aria-controls={menuId}
+                aria-haspopup="true"
+                onClick={handleProfileMenuOpen}
+                color="inherit"
+              >
+                <AccountCircle />
+              </IconButton>
+              {/* {user ? (
+                <>
+                  <Button
+                    onClick={() => navigate("/products")}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Products
+                  </Button>
+                  <Button
+                    onClick={() => navigate("/admin")}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Admin Page
+                  </Button>
+                  {user}
+                  <Button
+                    onClick={() => logout()}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Logout
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button
+                    onClick={() => navigate("/login")}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Login
+                  </Button>
+                  <Button
+                    onClick={() => navigate("/register")}
+                    sx={{ my: 2, color: "white", display: "block" }}
+                  >
+                    Register
+                  </Button>
+                </>
+              )} */}
+              {/* <Link to="/products">
                 <Button
                   sx={{ color: "white" }}
                   variant="outlined"
@@ -214,8 +297,8 @@ const Navbar = () => {
                 <Badge badgeContent={4} color="error">
                   <ShoppingCartIcon />
                 </Badge>
-              </IconButton>
-              <IconButton
+              </IconButton> */}
+              {/* <IconButton
                 size="large"
                 edge="end"
                 aria-label="account of current user"
@@ -225,7 +308,7 @@ const Navbar = () => {
                 color="inherit"
               >
                 <AccountCircle />
-              </IconButton>
+              </IconButton> */}
             </Box>
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
