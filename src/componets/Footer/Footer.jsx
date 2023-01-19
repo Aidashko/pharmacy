@@ -9,56 +9,77 @@ const SocialBox = styled(Box)({
 
 const Footer = () => {
   return (
-    <Box sx={{ background: "#323264", height: "300px" }}>
+    <Box sx={{ background: "#eeeeee", height: "300px", marginTop: "100px" }}>
       <Stack direction={{ xs: "row", md: "row" }} p={7}>
         <Box flex={1}>
-          <Typography color={"white"} align={"center"}>
-            Contact Us
+          <Typography
+            color={"darkblue"}
+            align={"center"}
+            gutterBottom
+            variant="h6"
+            className="footer"
+          >
+            contact us
           </Typography>
-          <Typography color={"white"} align={"center"}>
-            of squamate reptiles, with over 6,000 species,
+          <Typography color={"grey"} align={"center"}>
+            of squamate reptiles, <br /> with over 6,000 species, continents{" "}
+            <br /> except <br /> Antarcti ranging <br />
+            across
           </Typography>
-          <Typography color={"white"} align={"center"}>
+          <Typography color={"grey"} align={"center"}>
             continents except Antarcti
           </Typography>
-          <Typography color={"white"} align={"center"}>
+          <Typography color={"grey"} align={"center"}>
             ranging across
           </Typography>
         </Box>
         <Box flex={1}>
-          <Typography color={"white"} align={"center"}>
-            Data policy
+          <Typography
+            color={"darkblue"}
+            align={"center"}
+            gutterBottom
+            variant="h6"
+          >
+            <b />
+            data policy
           </Typography>
-          <Typography color={"white"} align={"center"}>
+          <Typography color={"grey"} align={"center"}>
             cookies
           </Typography>
-          <Typography color={"white"} align={"center"}>
+          <Typography color={"grey"} align={"center"}>
             Data Safety
           </Typography>
         </Box>
         <Box flex={1}>
-          <Typography color={"white"} align={"center"}>
-            Categories
+          <Typography
+            color={"darkblue"}
+            align={"center"}
+            gutterBottom
+            variant="h6"
+          >
+            categories
           </Typography>
-          <Typography color={"white"} variant={"body2"} align={"center"}>
+          <Typography color={"grey"} variant={"body2"} align={"center"}>
             Kids
           </Typography>
-          <Typography color={"white"} variant={"body2"} align={"center"}>
+          <Typography color={"grey"} variant={"body2"} align={"center"}>
             Women
           </Typography>
-          <Typography color={"white"} variant={"body2"} align={"center"}>
+          <Typography color={"grey"} variant={"body2"} align={"center"}>
             Men
           </Typography>
         </Box>
         <Box>
-          <Typography color={"white"} align={"center"}>
-            Follow Us
+          <Typography color={"darkblue"} align={"center"}>
+            follow Us
           </Typography>
           <SocialBox>
             <Facebook />
             <Instagram />
             <Twitter />
           </SocialBox>
+
+          <Typography></Typography>
         </Box>
       </Stack>
     </Box>

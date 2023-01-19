@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useContext } from "react";
 import Avatar from "@mui/material/Avatar";
 import Button from "@mui/material/Button";
 import CssBaseline from "@mui/material/CssBaseline";
@@ -37,8 +37,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function LogIn() {
-  const { login, error } = React.useState(authContext);
-
+  const { login, error } = useContext(authContext);
   const [email, setEmail] = React.useState("");
 
   const [password, setPassword] = React.useState("");
@@ -121,13 +120,15 @@ export default function LogIn() {
             </Button>
             <Grid container>
               <Grid item xs>
-                <Link href="#" variant="body2">
-                  Forgot password?
-                </Link>
+                <RouterLink to="/forgot">
+                  <Typography color="white">{"Forgot password?"}</Typography>
+                </RouterLink>
               </Grid>
               <Grid item>
                 <RouterLink to="/register">
-                  <Typography>{"Don't have an account? Sign Up"}</Typography>
+                  <Typography color="darkblack">
+                    {"Don't have an account? Sign Up"}
+                  </Typography>
                 </RouterLink>
               </Grid>
             </Grid>

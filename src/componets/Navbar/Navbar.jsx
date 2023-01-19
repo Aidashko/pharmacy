@@ -21,6 +21,7 @@ import { Button } from "@mui/material";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import "./Navbar.css";
 import { authContext } from "../../Contexts/AuthContext";
+import walg from "../../assets/Walg.jpg";
 
 const Search = styled("div")(({ theme }) => ({
   position: "relative",
@@ -49,7 +50,7 @@ const SearchIconWrapper = styled("div")(({ theme }) => ({
 }));
 
 const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: "inherit",
+  color: "black",
   "& .MuiInputBase-input": {
     padding: theme.spacing(1, 1, 1, 0),
     // vertical padding + font size from searchIcon
@@ -64,12 +65,16 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [anchorE2, setAnchorE2] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
 
   const handleProfileMenuOpen = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+  const handleProfilesMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
 
@@ -112,6 +117,37 @@ const Navbar = () => {
     </Menu>
   );
 
+  const renderMenu2 = (
+    <Menu
+      anchorEl={anchorE2}
+      anchorOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      id={menuId}
+      keepMounted
+      transformOrigin={{
+        vertical: "top",
+        horizontal: "right",
+      }}
+      open={isMenuOpen}
+      onClose={handleMenuClose}
+    >
+      <Link to="/products">
+        <MenuItem onClick={handleMenuClose}>Products</MenuItem>
+      </Link>
+      <Link to="/admin">
+        <MenuItem onClick={handleMenuClose}>Admin Page</MenuItem>
+      </Link>
+      <MenuItem
+        onClick={() => logout()}
+        sx={{ my: 2, color: "white", display: "block" }}
+      >
+        Log out
+      </MenuItem>
+    </Menu>
+  );
+
   const mobileMenuId = "primary-search-account-menu-mobile";
   const renderMobileMenu = (
     <Menu
@@ -129,33 +165,13 @@ const Navbar = () => {
       open={isMobileMenuOpen}
       onClose={handleMobileMenuClose}
     >
-      <MenuItem>
-        <IconButton size="large" aria-label="show 4 new mails" color="inherit">
-          <Badge badgeContent={4} color="error">
-            <MailIcon />
-          </Badge>
-        </IconButton>
-        <p>Messages</p>
-      </MenuItem>
-      <MenuItem>
-        <IconButton
-          size="large"
-          aria-label="show 17 new notifications"
-          color="inherit"
-        >
-          <Badge badgeContent={17} color="error">
-            <NotificationsIcon />
-          </Badge>
-        </IconButton>
-        <p>Notifications</p>
-      </MenuItem>
       <MenuItem onClick={handleProfileMenuOpen}>
         <IconButton
           size="large"
           aria-label="account of current user"
           aria-controls="primary-search-account-menu"
           aria-haspopup="true"
-          color="inherit"
+          color="black"
         >
           <AccountCircle />
         </IconButton>
@@ -163,33 +179,36 @@ const Navbar = () => {
       </MenuItem>
     </Menu>
   );
-
   const navigate = useNavigate();
   const { logout, user } = React.useState(authContext);
 
   return (
     <div className="Navbar">
       <Box sx={{ flexGrow: 1 }}>
-        <AppBar position="static">
+        <AppBar position="static" sx={{ backgroundColor: "#eeeeee" }}>
           <Toolbar>
             <IconButton
               size="large"
               edge="start"
-              color="inherit"
+              color="black"
               aria-label="open drawer"
               sx={{ mr: 2 }}
             >
               <MenuIcon />
             </IconButton>
-            <Typography
+            <Typography align="center" variant="h6" sx={{ fontWeight: 900 }}>
+              <b style={{ color: "#323264" }}>Wal</b>
+              <b style={{ color: "red" }}>greens</b>
+            </Typography>
+            {/* <Typography
               variant="h6"
               noWrap
               component="div"
               sx={{ display: { xs: "none", sm: "block" } }}
+              onClick={() => navigate("")}
             >
-              <img src="/assets/w.png" alt="" />
               WALGREENS
-            </Typography>
+            </Typography> */}
             <Search>
               <SearchIconWrapper>
                 <SearchIcon />
@@ -201,115 +220,47 @@ const Navbar = () => {
             </Search>
             <Box sx={{ flexGrow: 1 }} />
             <Box sx={{ display: { xs: "none", md: "flex" } }}>
-              <Button
-                onClick={() => navigate("/products")}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Products
-              </Button>
-              <Button
-                onClick={() => navigate("/admin")}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Admin Page
-              </Button>
-              {user}
-              <Button
-                onClick={() => logout()}
-                sx={{ my: 2, color: "white", display: "block" }}
-              >
-                Logout
-              </Button>
-
               <IconButton
                 size="large"
                 aria-label="show 4 new mails"
-                color="inherit"
+                color="black"
               >
                 <Badge badgeContent={4} color="error">
                   <ShoppingCartIcon />
                 </Badge>
               </IconButton>
-
-              <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              {/* {user ? (
-                <>
-                  <Button
-                    onClick={() => navigate("/products")}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    Products
-                  </Button>
-                  <Button
-                    onClick={() => navigate("/admin")}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    Admin Page
-                  </Button>
-                  {user}
-                  <Button
-                    onClick={() => logout()}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    Logout
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button
-                    onClick={() => navigate("/login")}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    Login
-                  </Button>
-                  <Button
-                    onClick={() => navigate("/register")}
-                    sx={{ my: 2, color: "white", display: "block" }}
-                  >
-                    Register
-                  </Button>
-                </>
-              )} */}
-              {/* <Link to="/products">
-                <Button
-                  sx={{ color: "white" }}
-                  variant="outlined"
-                  href="#outlined-buttons"
-                >
-                  Medicine
-                </Button>
-              </Link>
-              <IconButton
-                size="large"
-                aria-label="show 4 new mails"
-                color="inherit"
-              >
-                <Badge badgeContent={4} color="error">
-                  <ShoppingCartIcon />
-                </Badge>
-              </IconButton> */}
-              {/* <IconButton
-                size="large"
-                edge="end"
-                aria-label="account of current user"
-                aria-controls={menuId}
-                aria-haspopup="true"
-                onClick={handleProfileMenuOpen}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton> */}
             </Box>
+            {user ? (
+              <>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfilesMenuOpen}
+                  color="black"
+                >
+                  <AccountCircle />
+                </IconButton>
+                {renderMenu2}
+              </>
+            ) : (
+              <>
+                <IconButton
+                  size="large"
+                  edge="end"
+                  aria-label="account of current user"
+                  aria-controls={menuId}
+                  aria-haspopup="true"
+                  onClick={handleProfileMenuOpen}
+                  color="black"
+                >
+                  <AccountCircle />
+                </IconButton>
+                {renderMenu}
+              </>
+            )}
             <Box sx={{ display: { xs: "flex", md: "none" } }}>
               <IconButton
                 size="large"
@@ -317,7 +268,7 @@ const Navbar = () => {
                 aria-controls={mobileMenuId}
                 aria-haspopup="true"
                 onClick={handleMobileMenuOpen}
-                color="inherit"
+                color="black"
               >
                 <MoreIcon />
               </IconButton>
@@ -325,7 +276,6 @@ const Navbar = () => {
           </Toolbar>
         </AppBar>
         {renderMobileMenu}
-        {renderMenu}
       </Box>
     </div>
   );

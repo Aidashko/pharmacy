@@ -1,5 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
+import Forgot from "./componets/Auth/Forgot";
 import LogIn from "./componets/Auth/LogIn";
 import Register from "./componets/Auth/Register";
 import Details from "./componets/Details/Details";
@@ -20,6 +21,7 @@ const MainRoutes = () => {
         <Route path="/" element={<Home />} />
         <Route path="/details" element={<Details />} />
         <Route path="/stores" element={<Stores />} />
+        <Route path="/forgot" element={<Forgot />} />
       </Routes>
     </div>
   );

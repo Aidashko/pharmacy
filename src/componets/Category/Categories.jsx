@@ -37,7 +37,7 @@ const Categories = () => {
         </StyledBox>
         <StyledBox sx={{ backgroundImage: `url(${pharm})` }}>
           <StyledTypography align="center" variant="h3">
-            <Link to="/stores">
+            <Link src="https://goo.gl/maps/pNzE443pT7RchreP9">
               <Typography variant={"h6"} color="tomato" align="center">
                 Find a pharmacy
               </Typography>
