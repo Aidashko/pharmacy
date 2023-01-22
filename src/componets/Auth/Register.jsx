@@ -37,7 +37,7 @@ function Copyright(props) {
 const theme = createTheme();
 
 export default function Register() {
-  const { register } = React.useState(authContext);
+  const { register } = React.useContext(authContext);
 
   const [email, setEmail] = React.useState("");
 

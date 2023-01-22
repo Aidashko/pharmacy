@@ -1,4 +1,4 @@
-export const API_AUTH = "http://34.89.68.23/admin/";
+export const API_AUTH = "http://34.141.99.174/api/v1/account/";
 
 export const API_PRODUCTS = "http://34.173.115.25/api/v1/products/";
 

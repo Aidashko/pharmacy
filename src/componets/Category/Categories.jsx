@@ -2,8 +2,23 @@ import React from "react";
 import vitamines from "../../assets/vitamins.jpg";
 import care from "../../assets/pharmacy.jpg";
 import pharm from "../../assets/pharm.jpg";
-import { Box, Stack, styled, Typography } from "@mui/material";
+import {
+  Box,
+  Card,
+  CardMedia,
+  Grid,
+  Paper,
+  Stack,
+  styled,
+  Typography,
+} from "@mui/material";
+import CardContent from "@mui/material/CardContent";
 import { Link } from "react-router-dom";
+import categ from "../../assets/category.jpg";
+import sign1 from "../../assets/s.png";
+import sign2 from "../../assets/si.png";
+import sign3 from "../../assets/sig.png";
+import sign4 from "../../assets/sign.png";
 
 const StyledBox = styled(Box)({
   height: 200,
@@ -21,6 +36,79 @@ const StyledTypography = styled(Typography)({
 const Categories = () => {
   return (
     <Box>
+      <Stack
+        justifyContent="center"
+        sx={{
+          fontWeight: 900,
+          backgroundColor: "#eeeeee",
+          color: "black",
+          mt: 5,
+        }}
+      >
+        Boost your health
+        <p>FREE 1-hour Delivery at $35+ ›</p>
+        <Stack variant="outlined">
+          <img src={categ} />
+          <h2 justifyContent="center" style={{ mt: 8 }}>
+            More to shop
+          </h2>
+        </Stack>
+        <Grid
+          display="flex"
+          flexDirection="row"
+          justifyContent="space-between"
+          sx={{ mt: 3, mb: 7 }}
+        >
+          <Card sx={{ maxWidth: 345, width: 260 }}>
+            <CardMedia
+              sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
+              image={sign1}
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                Schedule <br /> vaccination(s)
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card sx={{ maxWidth: 345, width: 260 }}>
+            <CardMedia
+              sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
+              image={sign2}
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                COVID-19 <br /> information
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card sx={{ maxWidth: 345, width: 260 }}>
+            <CardMedia
+              sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
+              image={sign3}
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                COVID-19 testing <br /> options
+              </Typography>
+            </CardContent>
+          </Card>
+          <Card sx={{ maxWidth: 345, width: 260 }}>
+            <CardMedia
+              sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
+              image={sign4}
+              title="green iguana"
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h6" component="div">
+                Shop healthy <br /> essentials
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      </Stack>
       <Stack
         direction={{ xs: "column", sm: "row" }}
         spacing={{ xs: 1, sm: 2, md: 4 }}

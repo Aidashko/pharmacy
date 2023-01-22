@@ -7,13 +7,6 @@ import Rightbar from "../Rightbar/Rightbar";
 import care from "../../assets/weekly.webp";
 import { styled, Typography } from "@mui/material";
 import Options from "../Options/Options";
-const StyledTypography = styled(Typography)({
-  height: 173,
-  width: 856,
-  // margin: "25% 50px 25% 50px",
-  backgroundImage: `url(${care})`,
-  opacity: "0.8",
-});
 
 const Home = () => {
   return (
