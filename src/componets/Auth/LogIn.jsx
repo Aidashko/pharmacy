@@ -39,7 +39,6 @@ const theme = createTheme();
 export default function LogIn() {
   const { login, error } = useContext(authContext);
   const [email, setEmail] = React.useState("");
-
   const [password, setPassword] = React.useState("");
 
   function handleSubmit() {
@@ -53,6 +52,13 @@ export default function LogIn() {
     formData.append("password", password);
     login(formData, email);
   }
+  // const forgotPasswordHandler = () => {
+  //   const email = emailRef.current.value;
+  //   if (email)
+  //     forgotPassword(email).then(() => {
+  //       emailRef.current.value = "";
+  //     });
+  // };
 
   return (
     <ThemeProvider theme={theme}>

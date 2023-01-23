@@ -4,7 +4,9 @@ import care from "../../assets/pharmacy.jpg";
 import pharm from "../../assets/pharm.jpg";
 import {
   Box,
+  Button,
   Card,
+  CardActions,
   CardMedia,
   Grid,
   Paper,
@@ -45,19 +47,23 @@ const Categories = () => {
           mt: 5,
         }}
       >
-        Boost your health
+        BOOST YOUR HEALTH
         <p>FREE 1-hour Delivery at $35+ ›</p>
         <Stack variant="outlined">
           <img src={categ} />
           <h2 justifyContent="center" style={{ mt: 8 }}>
-            More to shop
+            MORE SAVINGS FOR YOU
           </h2>
         </Stack>
-        <Grid
-          display="flex"
-          flexDirection="row"
-          justifyContent="space-between"
-          sx={{ mt: 3, mb: 7 }}
+        <Box
+          sx={{
+            display: "flex",
+            flexDirection: "row",
+            flexWrap: "wrap",
+            justifyContent: "space-around",
+            mt: 3,
+            mb: 7,
+          }}
         >
           <Card sx={{ maxWidth: 345, width: 260 }}>
             <CardMedia
@@ -74,40 +80,40 @@ const Categories = () => {
           <Card sx={{ maxWidth: 345, width: 260 }}>
             <CardMedia
               sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
-              image={sign2}
+              image={sign1}
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
-                COVID-19 <br /> information
+                Schedule <br /> vaccination(s)
               </Typography>
             </CardContent>
           </Card>
           <Card sx={{ maxWidth: 345, width: 260 }}>
             <CardMedia
               sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
-              image={sign3}
+              image={sign1}
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
-                COVID-19 testing <br /> options
+                Schedule <br /> vaccination(s)
               </Typography>
             </CardContent>
           </Card>
           <Card sx={{ maxWidth: 345, width: 260 }}>
             <CardMedia
               sx={{ height: 100, width: 100, marginLeft: 10, marginTop: 5 }}
-              image={sign4}
+              image={sign1}
               title="green iguana"
             />
             <CardContent>
               <Typography gutterBottom variant="h6" component="div">
-                Shop healthy <br /> essentials
+                Schedule <br /> vaccination(s)
               </Typography>
             </CardContent>
           </Card>
-        </Grid>
+        </Box>
       </Stack>
       <Stack
         direction={{ xs: "column", sm: "row" }}

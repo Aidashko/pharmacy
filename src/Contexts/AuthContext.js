@@ -2,6 +2,8 @@ import axios from "axios";
 import React, { createContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { API_AUTH } from "../helpers";
+// import { sendPasswordResetEmail } from "firebase/auth";
+// import { auth } from "firebase";
 
 export const authContext = createContext();
 
@@ -67,6 +69,10 @@ const AuthContextProvider = ({ children }) => {
     navigate("/login");
   }
 
+  // const forgotPassword = (email) => {
+  //   return sendPasswordResetEmail(auth, email);
+  // };
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       checkAuth();
@@ -80,6 +86,7 @@ const AuthContextProvider = ({ children }) => {
     login,
     register,
     logout,
+    // forgotPassword,
   };
   return <authContext.Provider value={value}>{children}</authContext.Provider>;
 };

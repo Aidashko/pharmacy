@@ -23,9 +23,6 @@ const Home = () => {
           <Box flex={3} sx={{ padding: "18px 100px 100px 100px" }}>
             <Recents />
           </Box>
-          <Box flex={1}>
-            <Rightbar />
-          </Box>
         </Stack>
         <Options />
       </Container>

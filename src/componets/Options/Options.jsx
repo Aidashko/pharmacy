@@ -23,11 +23,13 @@ export default function BasicCard() {
         </Typography>
       </Box>
       <Box
-        justifyContent="center"
         sx={{
           display: "flex",
           flexDirection: "row",
+          flexWrap: "wrap",
           justifyContent: "space-around",
+          mt: 3,
+          mb: 7,
         }}
       >
         <Card sx={{ maxWidth: 345, width: 260 }}>
